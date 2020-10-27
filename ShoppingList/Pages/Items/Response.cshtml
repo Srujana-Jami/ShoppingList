@@ -1,0 +1,16 @@
+﻿@page
+@model ShoppingList.Pages.Items.ResponseModel
+@{
+    ViewData["Title"] = "Response";
+}
+
+<div class="text-center">
+    <h4>Item has been added successfully</h4>
+</div>
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

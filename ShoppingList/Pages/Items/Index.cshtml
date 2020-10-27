@@ -1,0 +1,44 @@
+﻿@page
+@model ShoppingList.Pages.Items.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h3>Welcome To Shopping List</h3>
+</div>
+
+<p>
+    <a asp-page="Create">Add New Item</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.List[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.List[0].Item)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model.List) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+       }
+    </tbody>
+</table>
